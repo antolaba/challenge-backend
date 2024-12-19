@@ -52,13 +52,30 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Classes\FormaGeometrica.cs" />
+    <Compile Include="Classes\Editors\Editor.cs" />
+    <Compile Include="Classes\Editors\HtmlEditor.cs" />
+    <Compile Include="Classes\FormaGeometricaTraductor.cs" />
+    <Compile Include="Classes\FormasGeometricas\Circulo.cs" />
+    <Compile Include="Classes\FormasGeometricas\Cuadrado.cs" />
+    <Compile Include="Classes\FormasGeometricas\FormaGeometrica.cs" />
+    <Compile Include="Classes\FormasGeometricas\Rectangulo.cs" />
+    <Compile Include="Classes\FormasGeometricas\Trapecio.cs" />
+    <Compile Include="Classes\FormasGeometricas\TrianguloEquilatero.cs" />
+    <Compile Include="Classes\Idiomas\Castellano.cs" />
+    <Compile Include="Classes\Idiomas\Idioma.cs" />
+    <Compile Include="Classes\Idiomas\Ingles.cs" />
+    <Compile Include="Classes\Idiomas\Portuges.cs" />
+    <Compile Include="Enums\FormaGeometricaType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\FormaGeometricaService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="api_spefication.json" />
+    <Content Include="Endpoints.md" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
