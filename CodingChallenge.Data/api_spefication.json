@@ -1,0 +1,246 @@
+﻿{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "API para Cálculos Geométricos",
+    "description": "Esta API proporciona cálculos para áreas y perímetros de diferentes figuras geométricas.",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/api/calcularArea": {
+      "get": {
+        "summary": "Calcula el área de una figura",
+        "parameters": [
+          {
+            "name": "type",
+            "in": "query",
+            "description": "El tipo de la figura para la cual se calcula el área.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "enum": [1, 2, 3, 4, 5]
+            }
+          },
+          {
+            "name": "payload",
+            "in": "query",
+            "description": "Parámetros específicos para calcular el área según el tipo de figura.",
+            "required": true,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "lado": {
+                          "type": "number",
+                          "description": "El lado del cuadrado."
+                        }
+                      },
+                      "required": ["lado"]
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "lado": {
+                          "type": "number",
+                          "description": "El lado del triángulo equilátero."
+                        }
+                      },
+                      "required": ["lado"]
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "diametro": {
+                          "type": "number",
+                          "description": "El diámetro del círculo."
+                        }
+                      },
+                      "required": ["diametro"]
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "baseMayor": {
+                          "type": "number",
+                          "description": "La base mayor del trapecio."
+                        },
+                        "baseMenor": {
+                          "type": "number",
+                          "description": "La base menor del trapecio."
+                        },
+                        "lado1": {
+                          "type": "number",
+                          "description": "Un lado del trapecio."
+                        },
+                        "lado2": {
+                          "type": "number",
+                          "description": "Otro lado del trapecio."
+                        }
+                      },
+                      "required": ["baseMayor", "baseMenor", "lado1", "lado2"]
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "ancho": {
+                          "type": "number",
+                          "description": "El ancho del rectángulo."
+                        },
+                        "largo": {
+                          "type": "number",
+                          "description": "El largo del rectángulo."
+                        }
+                      },
+                      "required": ["ancho", "largo"]
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Área calculada correctamente.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "area": {
+                      "type": "number",
+                      "description": "El área calculada de la figura."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Petición incorrecta."
+          }
+        }
+      }
+    },
+    "/api/calcularPerimetro": {
+      "get": {
+        "summary": "Calcula el perímetro de una figura",
+        "parameters": [
+          {
+            "name": "type",
+            "in": "query",
+            "description": "El tipo de la figura para la cual se calcula el perímetro.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "enum": [1, 2, 3, 4, 5]
+            }
+          },
+          {
+            "name": "payload",
+            "in": "query",
+            "description": "Parámetros específicos para calcular el perímetro según el tipo de figura.",
+            "required": true,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "lado": {
+                          "type": "number",
+                          "description": "El lado del cuadrado."
+                        }
+                      },
+                      "required": ["lado"]
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "lado": {
+                          "type": "number",
+                          "description": "El lado del triángulo equilátero."
+                        }
+                      },
+                      "required": ["lado"]
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "diametro": {
+                          "type": "number",
+                          "description": "El diámetro del círculo."
+                        }
+                      },
+                      "required": ["diametro"]
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "baseMayor": {
+                          "type": "number",
+                          "description": "La base mayor del trapecio."
+                        },
+                        "baseMenor": {
+                          "type": "number",
+                          "description": "La base menor del trapecio."
+                        },
+                        "lado1": {
+                          "type": "number",
+                          "description": "Un lado del trapecio."
+                        },
+                        "lado2": {
+                          "type": "number",
+                          "description": "Otro lado del trapecio."
+                        }
+                      },
+                      "required": ["baseMayor", "baseMenor", "lado1", "lado2"]
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "ancho": {
+                          "type": "number",
+                          "description": "El ancho del rectángulo."
+                        },
+                        "largo": {
+                          "type": "number",
+                          "description": "El largo del rectángulo."
+                        }
+                      },
+                      "required": ["ancho", "largo"]
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Perímetro calculado correctamente.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "perimetro": {
+                      "type": "number",
+                      "description": "El perímetro calculado de la figura."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Petición incorrecta."
+          }
+        }
+      }
+    }
+  }
+}
